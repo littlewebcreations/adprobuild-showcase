@@ -24,7 +24,7 @@ export function Header() {
           </Link>
           <Link
             to="/contact"
-            className="text-foreground/80 transition-colors hover:text-foreground sm:hidden"
+            className="text-foreground/80 transition-colors hover:text-foreground"
           >
             Contact
           </Link>
