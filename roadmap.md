@@ -7,5 +7,5 @@
 - [x] Project detail pages (generated imagery)
 - [x] Local SEO: per-route head metadata, GeneralContractor JSON-LD, LL14 2EJ address, service areas
 - [x] Root metadata, fonts, favicon
-- [ ] Verify build + preview
+- [x] Verify build + preview
 - [ ] Sitemap (after publish, once the live URL exists)
