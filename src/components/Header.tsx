@@ -12,12 +12,21 @@ export function Header() {
             You dream it, we build it
           </span>
         </Link>
-        <nav className="flex items-center gap-5 text-sm font-semibold">
+        <nav className="flex items-center gap-4 text-sm font-semibold sm:gap-5">
           <Link to="/" className="hidden text-foreground/80 transition-colors hover:text-foreground sm:block">
             Home
           </Link>
           <Link to="/projects" className="text-foreground/80 transition-colors hover:text-foreground">
             Our Work
+          </Link>
+          <Link to="/about" className="hidden text-foreground/80 transition-colors hover:text-foreground sm:block">
+            About
+          </Link>
+          <Link
+            to="/contact"
+            className="text-foreground/80 transition-colors hover:text-foreground sm:hidden"
+          >
+            Contact
           </Link>
           <a
             href={contact.whatsapp}

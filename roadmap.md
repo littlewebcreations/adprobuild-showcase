@@ -8,4 +8,5 @@
 - [x] Local SEO: per-route head metadata, GeneralContractor JSON-LD, LL14 2EJ address, service areas
 - [x] Root metadata, fonts, favicon
 - [x] Verify build + preview
+- [x] About page (/about) and Contact page (/contact), added to header nav
 - [ ] Sitemap (after publish, once the live URL exists)
