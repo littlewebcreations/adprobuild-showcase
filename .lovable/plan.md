@@ -40,8 +40,8 @@
 - The shared UI library files that the site doesn't use are left alone.
 
 ## 6. Icons, lists, form
-- Replace the inline SVGs and the dot-bullet "What the job involved" list with Font Awesome 6. Load the stylesheet from the head with a link tag. Lists become rows of an icon plus a paragraph.
-- On Home and Contact, replace the contact form with one placeholder block (`#contact-form`, "Contact form goes here").
+- Keep the floating button's WhatsApp icon unchanged. Replace other inline SVGs and the dot-bullet "What the job involved" list with Font Awesome 6. Load the stylesheet from the head with a link tag. Lists become rows of an icon plus a paragraph.
+- Keep the existing contact form exactly as it works now, still opening WhatsApp, on Home and Contact. Only wrap it in the new structure and classes. No placeholders replace anything.
 
 ## 7. Per-page details
 - Keep each page's own title, description and slug. Check that every image has alt text, and that the logo and the square favicon are separate files.
@@ -49,7 +49,8 @@
 ## Agreed exceptions
 - The floating WhatsApp button stays exactly as it is now: same position, same colour.
 - The stylesheet is pasted exactly as written, including `html { font-size: 18px }` and the rgba hover colour.
-- The working WhatsApp form is replaced by the placeholder, as the rules require.
+- The working WhatsApp contact form stays on Home and Contact.
+- No existing feature or component is removed. The work only adds the new classes and structure around what is already there.
 
 ## Checks
 - The build is clean. Playwright screenshots at mobile and desktop for every page.
