@@ -1,10 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { createFileRoute } from "@tanstack/react-router";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { SiteLayout } from "@/components/SiteLayout";
 import { ProjectCard } from "@/components/ProjectCard";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { categories, projects } from "@/data/projects";
 
 const title = "Project Gallery | Building Work in Wrexham & North Wales | A&D Probuild";
@@ -28,48 +25,41 @@ export const Route = createFileRoute("/projects/")({
 });
 
 function Gallery() {
-  const [active, setActive] = useState("All");
-  const shown = active === "All" ? projects : projects.filter((p) => p.category === active);
-
   return (
-    <div className="min-h-screen bg-background font-body text-foreground">
-      <Header />
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-        <p className="text-[11px] font-bold uppercase text-primary">Our work</p>
-        <h1 className="mt-2 font-display text-4xl md:text-5xl">Project gallery</h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-          Original project photographs from Andrew and David’s housing developments, brickwork, stonework and garden transformations.
-        </p>
-
-        <div className="mt-8 flex flex-wrap gap-2">
-          {categories.map((c) => (
-            <Button
-              key={c}
-              onClick={() => setActive(c)}
-              className={
-                active === c
-                  ? "rounded-md bg-primary px-4 py-2 text-xs font-bold text-primary-foreground"
-                  : "rounded-md border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground transition-colors hover:text-foreground"
-              }
-            >
-              {c}
-            </Button>
-          ))}
+    <SiteLayout>
+      <section id="gallery" className="page-cont flex">
+        <div className="mx-auto flex w-full max-w-[75rem] flex-col">
+          <div className="inner-cont flex flex-col">
+            <p className="eyebrow">Our work</p>
+            <h1 className="page-title">Project gallery</h1>
+            <p className="page-desc max-w-[42rem]">
+              Original project photographs from Andrew and David’s housing developments, brickwork, stonework and garden transformations.
+            </p>
+          </div>
+          <Tabs defaultValue="All" className="inner-cont flex flex-col">
+            <TabsList className="flex h-auto flex-wrap justify-start">
+              {categories.map((c) => (
+                <TabsTrigger key={c} value={c}>{c}</TabsTrigger>
+              ))}
+            </TabsList>
+            {categories.map((c) => {
+              const shown = c === "All" ? projects : projects.filter((p) => p.category === c);
+              return (
+                <TabsContent key={c} value={c} className="flex flex-wrap gap-[1rem]">
+                  {shown.map((p) => (
+                    <ProjectCard key={p.slug} project={p} />
+                  ))}
+                  {shown.length === 0 && (
+                    <p className="section-desc">
+                      No projects listed under {c} yet — get in touch and we&rsquo;ll talk you through recent work.
+                    </p>
+                  )}
+                </TabsContent>
+              );
+            })}
+          </Tabs>
         </div>
-
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {shown.map((p) => (
-            <ProjectCard key={p.slug} project={p} />
-          ))}
-        </div>
-        {shown.length === 0 && (
-          <p className="mt-10 text-sm text-muted-foreground">
-            No projects listed under {active} yet — get in touch and we&rsquo;ll talk you through recent work.
-          </p>
-        )}
       </section>
-      <Footer />
-      <WhatsAppFab />
-    </div>
+    </SiteLayout>
   );
 }

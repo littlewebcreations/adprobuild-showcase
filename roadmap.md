@@ -15,3 +15,4 @@
 - [x] Review supplied MyFonts website licence — purchased page-view allowance applies; font kit still needed
 - [x] Replace generated imagery with verified client project photographs
 - [x] Apply newly supplied website logo and favicon
+- [x] LWC stylesheet + build rules applied across all pages

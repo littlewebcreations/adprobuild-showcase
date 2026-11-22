@@ -4,44 +4,46 @@ import { contact, serviceAreas } from "@/data/projects";
 
 export function Footer() {
   return (
-    <footer className="bg-secondary text-secondary-foreground">
-      <div className="mx-auto max-w-6xl px-4 py-12">
-        <div className="grid gap-10 md:grid-cols-3">
-          <div>
-            <img src={logo.url} alt="A&D Probuild logo" className="h-auto w-52 rounded bg-paper p-3" />
-            <p className="mt-4 text-sm text-secondary-foreground/70">
+    <footer className="ast-custom-footer bg-secondary text-secondary-foreground">
+      <div className="section-cont mx-auto flex w-full max-w-[75rem] flex-col">
+        <div className="inner-cont flex flex-wrap">
+          <div className="card-cont flex grow basis-[16rem] flex-col">
+            <img src={logo.url} alt="A&D Probuild logo" className="h-auto w-[11rem] rounded bg-paper p-[0.75rem]" />
+            <p className="card-desc">
               Quality building work across North Wales and the North West. You dream it, we build it.
             </p>
           </div>
-          <div>
-            <p className="text-xs font-bold uppercase text-secondary-foreground/50">Contact</p>
-            <address className="mt-3 text-sm not-italic leading-relaxed text-secondary-foreground/80">
+          <div className="card-cont flex grow basis-[16rem] flex-col">
+            <p className="eyebrow">Contact</p>
+            <address className="card-desc not-italic">
               A&D Probuild Ltd
               <br />
               {contact.address}
             </address>
-            <div className="mt-3 space-y-1 text-sm">
-              <a href={`tel:${contact.andrew.tel}`} className="block hover:underline">
+            <div className="card-desc flex flex-col">
+              <a href={`tel:${contact.andrew.tel}`} className="hover:underline">
                 {contact.andrew.name} — {contact.andrew.phone}
               </a>
-              <a href={`tel:${contact.david.tel}`} className="block hover:underline">
+              <a href={`tel:${contact.david.tel}`} className="hover:underline">
                 {contact.david.name} — {contact.david.phone}
               </a>
-              <a href={`mailto:${contact.email}`} className="block hover:underline">
+              <a href={`mailto:${contact.email}`} className="hover:underline">
                 {contact.email}
               </a>
             </div>
           </div>
-          <div>
-            <p className="text-xs font-bold uppercase text-secondary-foreground/50">Areas we cover</p>
-            <p className="mt-3 text-sm leading-relaxed text-secondary-foreground/80">{serviceAreas.join(" · ")}</p>
-            <Link to="/projects" className="mt-4 inline-block text-sm font-semibold text-primary-foreground underline underline-offset-4">
+          <div className="card-cont flex grow basis-[16rem] flex-col">
+            <p className="eyebrow">Areas we cover</p>
+            <p className="card-desc">{serviceAreas.join(" · ")}</p>
+            <Link to="/projects" className="card-desc underline underline-offset-4">
               View our project gallery
             </Link>
           </div>
         </div>
-        <div className="mt-10 border-t border-secondary-foreground/10 pt-6 text-xs text-secondary-foreground/50">
-          A&D Probuild Ltd · Registered in England and Wales · Company No. {contact.companyNumber}
+        <div className="inner-cont flex border-t border-secondary-foreground/10">
+          <p className="card-desc">
+            A&D Probuild Ltd · Registered in England and Wales · Company No. {contact.companyNumber}
+          </p>
         </div>
       </div>
     </footer>

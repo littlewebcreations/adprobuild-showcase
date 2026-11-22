@@ -6,9 +6,9 @@ export function ProjectCard({ project }: { project: Project }) {
     <Link
       to="/projects/$slug"
       params={{ slug: project.slug }}
-      className="group overflow-hidden rounded-lg border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-xl"
+      className="group flex grow basis-[18rem] flex-col overflow-hidden rounded-lg border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-xl"
     >
-      <div className="aspect-[4/3] overflow-hidden">
+      <div className="flex aspect-[4/3] overflow-hidden">
         <img
           src={project.image}
           alt={`${project.title} — ${project.location}`}
@@ -18,10 +18,10 @@ export function ProjectCard({ project }: { project: Project }) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <div className="border-t border-brand-red p-5">
-        <span className="text-[11px] font-bold uppercase text-primary">{project.category}</span>
-        <h3 className="mt-1 font-display text-2xl leading-tight">{project.title}</h3>
-        <p className="mt-1 text-sm text-muted-foreground">{project.location}</p>
+      <div className="card-cont flex flex-col border-t border-brand-red">
+        <span className="eyebrow">{project.category}</span>
+        <h3 className="card-title">{project.title}</h3>
+        <p className="card-desc">{project.location}</p>
       </div>
     </Link>
   );

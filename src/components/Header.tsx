@@ -3,41 +3,44 @@ import { Link } from "@tanstack/react-router";
 import logo from "@/assets/website-logo.png.asset.json";
 import { contact } from "@/data/projects";
 
+const navLink = "text-foreground/80 transition-colors hover:text-foreground";
+
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logo.url} alt="A&D Probuild logo" className="h-auto w-24 shrink-0 sm:w-36" />
-          <span className="hidden text-[11px] font-medium uppercase text-muted-foreground lg:block">
-            You dream it, we build it
-          </span>
-        </Link>
-        <nav className="flex items-center gap-3 text-xs font-semibold sm:gap-5 sm:text-sm">
-          <Link to="/" className="hidden text-foreground/80 transition-colors hover:text-foreground sm:block">
-            Home
-          </Link>
-          <Link to="/projects" className="text-foreground/80 transition-colors hover:text-foreground">
-            Our Work
-          </Link>
-          <Link to="/about" className="hidden text-foreground/80 transition-colors hover:text-foreground sm:block">
-            About
-          </Link>
-          <Link
-            to="/contact"
-            className="text-foreground/80 transition-colors hover:text-foreground"
-          >
-            Contact
-          </Link>
-          <Button asChild variant="whatsapp" className="h-auto"><a
-            href={contact.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-md bg-accent px-3 py-2 text-xs font-bold text-accent-foreground transition-transform hover:-translate-y-0.5"
-          >
-            WhatsApp us
-          </a></Button>
-        </nav>
+    <header id="masthead" className="site-header sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
+      <div id="ast-desktop-header">
+        <div className="ast-main-header-wrap main-header-bar-wrap">
+          <div className="ast-primary-header-bar ast-primary-header main-header-bar">
+            <div className="site-primary-header-wrap ast-builder-grid-row-container ast-container mx-auto flex w-full max-w-[75rem]">
+              <div className="ast-builder-grid-row default-container flex w-full flex-wrap items-center justify-between">
+                <div className="site-header-primary-section-left site-header-section ast-flex flex items-center">
+                  <div className="site-branding ast-site-identity">
+                    <Link to="/">
+                      <img src={logo.url} alt="A&D Probuild logo" className="h-auto w-[6rem] sm:w-[8rem]" />
+                    </Link>
+                  </div>
+                </div>
+                <div className="site-header-primary-section-center site-header-section ast-flex flex items-center">
+                  <nav className="ast-builder-menu-1 ast-builder-menu default-container flex flex-wrap items-center" aria-label="Main menu">
+                    <Link to="/" className={navLink}>Home</Link>
+                    <Link to="/projects" className={navLink}>Our Work</Link>
+                    <Link to="/about" className={navLink}>About</Link>
+                    <Link to="/contact" className={navLink}>Contact</Link>
+                  </nav>
+                </div>
+                <div className="site-header-primary-section-right site-header-section ast-flex flex items-center">
+                  <div className="section-buttons flex flex-wrap">
+                    <Button asChild variant="whatsapp" className="primary-button h-auto">
+                      <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
+                        <i className="fa-brands fa-whatsapp" aria-hidden="true" /> WhatsApp us
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );

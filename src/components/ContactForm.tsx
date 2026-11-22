@@ -22,13 +22,13 @@ export function ContactForm() {
   };
 
   const inputCls =
-    "w-full rounded-md border-2 border-input bg-card px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none";
+    "w-full rounded-md border-2 border-input bg-card p-[0.75rem] placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none";
 
   return (
-    <form onSubmit={onSubmit} className="space-y-3">
-      <div className="grid gap-3 sm:grid-cols-2">
-        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className={inputCls} required />
-        <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" placeholder="Phone number" className={inputCls} />
+    <form onSubmit={onSubmit} className="default-container flex flex-col">
+      <div className="flex flex-wrap gap-[1rem]">
+        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className={`${inputCls} basis-[12rem] grow`} required />
+        <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" placeholder="Phone number" className={`${inputCls} basis-[12rem] grow`} />
       </div>
       <select value={service} onChange={(e) => setService(e.target.value)} className={`${inputCls} ${service ? "" : "text-muted-foreground/60"}`}>
         <option value="">What do you need?</option>
@@ -46,13 +46,12 @@ export function ContactForm() {
         className={inputCls}
         required
       />
-      <Button
-        type="submit"
-        variant="whatsapp" className="h-auto w-full px-6 py-4 font-body text-sm"
-      >
-        Send your enquiry
-      </Button>
-      <p className="text-center text-xs text-muted-foreground">
+      <div className="card-buttons flex">
+        <Button type="submit" variant="whatsapp" className="primary-button h-auto w-full">
+          <i className="fa-brands fa-whatsapp" aria-hidden="true" /> Send your enquiry
+        </Button>
+      </div>
+      <p className="card-desc text-center">
         Sends via WhatsApp — the fastest way to reach Andrew &amp; David.
       </p>
     </form>
