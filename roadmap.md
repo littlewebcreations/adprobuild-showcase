@@ -10,3 +10,5 @@
 - [x] Verify build + preview
 - [x] About page (/about) and Contact page (/contact), added to header nav
 - [ ] Sitemap (after publish, once the live URL exists)
+- [ ] Match Canva styling — awaiting screenshots or exports because the links require login
+- [x] Replace generated imagery with verified client project photographs

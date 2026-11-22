@@ -2,9 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
-import { contact, services, serviceAreas } from "@/data/projects";
-import renovationImg from "@/assets/project-renovation.jpg";
-import stoneworkImg from "@/assets/project-stonework.jpg";
+import { contact, projectImages, services, serviceAreas } from "@/data/projects";
 
 const title = "About A&D Probuild Ltd | Builders in Rhosllanerchrugog, Wrexham";
 const description =
@@ -34,8 +32,8 @@ function About() {
       {/* Intro */}
       <section className="relative overflow-hidden bg-secondary text-secondary-foreground">
         <img
-          src={renovationImg}
-          alt="Interior of a renovated home finished by A&D Probuild"
+          src={projectImages.hero}
+          alt="Housing development with masonry completed by Andrew and David"
           className="absolute inset-0 h-full w-full object-cover opacity-25"
         />
         <div className="relative mx-auto max-w-6xl px-4 py-16 md:py-24">
@@ -93,7 +91,7 @@ function About() {
           </div>
           <div className="space-y-5">
             <img
-              src={stoneworkImg}
+              src={projectImages.stonework}
               alt="Traditional stonework built by A&D Probuild"
               className="h-64 w-full rounded-3xl object-cover md:h-80"
             />

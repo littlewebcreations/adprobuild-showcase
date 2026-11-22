@@ -47,7 +47,7 @@ function ProjectDetail() {
         </span>
         <h1 className="mt-2 font-display text-3xl leading-tight tracking-tight md:text-5xl">{project.title}</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          {project.location} · {project.duration}
+          {project.location}{project.duration ? ` · ${project.duration}` : ""}
         </p>
 
         <img
@@ -55,8 +55,15 @@ function ProjectDetail() {
           alt={`${project.title} in ${project.location}`}
           width={1024}
           height={768}
-          className="mt-6 w-full rounded-2xl object-cover"
+          className="mt-6 aspect-[4/3] max-h-[560px] w-full rounded-2xl bg-muted object-contain"
         />
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          {project.photos.map((photo) => (
+            <img key={photo.image} src={photo.image} alt={photo.alt} loading="lazy"
+              className="aspect-[4/3] h-full w-full rounded-lg object-cover" />
+          ))}
+        </div>
 
         <div className="mt-8 space-y-4 text-base leading-relaxed text-foreground/85">
           {project.description.map((para) => (

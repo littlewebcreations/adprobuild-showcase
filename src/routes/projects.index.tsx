@@ -8,7 +8,7 @@ import { categories, projects } from "@/data/projects";
 
 const title = "Project Gallery | Building Work in Wrexham & North Wales | A&D Probuild";
 const description =
-  "Browse completed extensions, renovations, loft and garage conversions, stonework, driveways and rendering by A&D Probuild across Wrexham, Chester and North Wales.";
+  "Explore genuine photographs of Andrew and David’s housing developments, brickwork, stonework and garden transformations.";
 
 export const Route = createFileRoute("/projects/")({
   component: Gallery,
@@ -37,8 +37,7 @@ function Gallery() {
         <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Our work</p>
         <h1 className="mt-2 font-display text-4xl tracking-tight md:text-5xl">Project gallery</h1>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-          A selection of builds completed across Wrexham, Chester, Mold, Oswestry and the wider North West — from stone
-          walls and driveways to full house renovations.
+          Original project photographs from Andrew and David’s housing developments, brickwork, stonework and garden transformations.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-2">

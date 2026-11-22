@@ -4,8 +4,7 @@ import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
 import { ProjectCard } from "@/components/ProjectCard";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
-import { contact, projects, services, serviceAreas } from "@/data/projects";
-import heroImg from "@/assets/hero.jpg";
+import { contact, projects, projectImages, services, serviceAreas } from "@/data/projects";
 
 const title = "Builders in Wrexham | Extensions, Renovations & Stonework | A&D Probuild";
 const description =
@@ -59,8 +58,8 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-secondary text-secondary-foreground">
         <img
-          src={heroImg}
-          alt="Brick home extension with glass doors built by A&D Probuild"
+          src={projectImages.hero}
+          alt="Homes with brickwork, blockwork and stonework completed by Andrew and David"
           width={1344}
           height={768}
           className="absolute inset-0 h-full w-full object-cover opacity-35"

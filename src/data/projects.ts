@@ -1,128 +1,81 @@
-import extensionImg from "@/assets/project-extension.jpg";
-import stoneworkImg from "@/assets/project-stonework.jpg";
-import loftImg from "@/assets/project-loft.jpg";
-import drivewayImg from "@/assets/project-driveway.jpg";
-import renderingImg from "@/assets/project-rendering.jpg";
-import renovationImg from "@/assets/project-renovation.jpg";
-import garageImg from "@/assets/project-garage.jpg";
+import developmentAsset from "@/assets/client/housing-development.webp.asset.json";
+import stoneworkAsset from "@/assets/client/stonework-detail.webp.asset.json";
+import castleAsset from "@/assets/client/castle-homes.webp.asset.json";
+import summerRoomAsset from "@/assets/client/summer-room.webp.asset.json";
+import brickworkAsset from "@/assets/client/decorative-brickwork.webp.asset.json";
+import gardenAsset from "@/assets/client/garden-finished.webp.asset.json";
+import gardenLawnAsset from "@/assets/client/garden-lawn.webp.asset.json";
+import gardenProgressAsset from "@/assets/client/garden-progress.webp.asset.json";
 
 export type Project = {
   slug: string;
   title: string;
   location: string;
   category: string;
-  duration: string;
+  duration?: string;
   summary: string;
   description: string[];
   scope: string[];
   image: string;
+  photos: { image: string; alt: string }[];
+};
+
+export const projectImages = {
+  hero: developmentAsset.url,
+  stonework: stoneworkAsset.url,
 };
 
 export const projects: Project[] = [
   {
-    slug: "rear-extension-mold",
-    title: "Single-Storey Rear Extension",
-    location: "Mold, Flintshire",
-    category: "Extensions",
-    duration: "10 weeks",
-    summary:
-      "A brick-matched rear extension with wide sliding doors, turning a dark kitchen into a bright family space.",
-    description: [
-      "The owners wanted a bigger kitchen-diner without losing the character of their semi. We matched the existing brickwork course for course so the new build reads as part of the original house.",
-      "We handled everything from footings to final plaster: drainage, steelwork, roofing, first and second fix, and decoration-ready plastering throughout.",
-    ],
-    scope: ["Footings & drainage", "Brick-matched external walls", "Steel installation", "Roof & leadwork", "Plastering & second fix"],
-    image: extensionImg,
-  },
-  {
-    slug: "stone-wall-llangollen",
-    title: "Stone Boundary Wall & Entrance",
-    location: "Llangollen",
+    slug: "four-homes-castle-caereinion",
+    title: "Four Brick-Built Homes",
+    location: "Castle Caereinion",
     category: "Stonework & Brickwork",
-    duration: "3 weeks",
-    summary:
-      "A collapsed boundary wall rebuilt in local stone with hand-cut coping, restoring the entrance to a period property.",
+    summary: "Brickwork and foundations for four properties with garages in Castle Caereinion, completed by Andrew and David in 2021/22.",
     description: [
-      "The original wall had bowed and collapsed after years of water damage. We took it down to sound footings and rebuilt it in local stone to match the surrounding lanes.",
-      "Every coping stone was cut by hand on site, and the joints were struck flush for a crisp, traditional finish that will shed water for decades.",
+      "This development comprised two bungalows, a four-bedroom house and a five-bedroom house, with garages and chimneys suitable for an open fire or log burner.",
+      "Andrew and David undertook the brickwork and foundations before the formation of A&D Probuild Ltd. The photographs show the houses, summer room and decorative brickwork during the project.",
     ],
-    scope: ["Demolition & footings", "Local stone selection", "Hand-cut coping stones", "Traditional struck joints", "Gateway re-setting"],
-    image: stoneworkImg,
+    scope: ["Foundations", "Brickwork", "Four properties with garages", "Chimneys", "Decorative brickwork"],
+    image: castleAsset.url,
+    photos: [
+      { image: summerRoomAsset.url, alt: "Brick-built summer room with glazed doors at Castle Caereinion" },
+      { image: brickworkAsset.url, alt: "Decorative brick detailing beneath a gable at Castle Caereinion" },
+    ],
   },
   {
-    slug: "loft-conversion-oswestry",
-    title: "Loft Conversion with Skylights",
-    location: "Oswestry",
-    category: "Loft Conversions",
-    duration: "8 weeks",
-    summary:
-      "A dark attic transformed into a bright double bedroom with large skylights, new staircase and full insulation.",
+    slug: "fourteen-home-development",
+    title: "Mixed 14-Home Development",
+    location: "Location not published",
+    category: "Stonework & Brickwork",
+    duration: "15 months",
+    summary: "Brickwork, blockwork and stonework for a mixed development of 14 homes, two garages and three retaining walls.",
     description: [
-      "This terraced house needed an extra bedroom without eating into the garden. A loft conversion added a full double room with eaves storage and a skylight over the new stairwell.",
-      "We installed the steels, floor joists, staircase, insulation and plasterboard, then plastered and finished the room ready for decoration.",
+      "Andrew and David constructed the brickwork, blockwork, stonework and copings for a mix of semi-detached and detached homes. The work included two garages and three retaining walls with incorporated steps.",
+      "The client’s existing website records the project as running from July 2020 to the end of October 2021, with a stated duration of 15 months. Andrew and David completed this work before the formation of A&D Probuild Ltd.",
     ],
-    scope: ["Structural steels & joists", "New staircase", "Skylight installation", "Full insulation", "Plastering & finish"],
-    image: loftImg,
+    scope: ["Brickwork & blockwork", "Stonework details", "Two garages", "Three retaining walls", "Copings & incorporated steps"],
+    image: developmentAsset.url,
+    photos: [
+      { image: stoneworkAsset.url, alt: "Stone facing and window detail on the 14-home development" },
+    ],
   },
   {
-    slug: "driveway-wrexham",
-    title: "Block-Paved Driveway",
-    location: "Wrexham",
-    category: "Driveways",
-    duration: "1 week",
-    summary:
-      "A tired front garden replaced with a charcoal block-paved driveway, new edging and proper drainage.",
+    slug: "garden-transformation",
+    title: "Complete Garden Transformation",
+    location: "Location not published",
+    category: "Landscaping",
+    summary: "A complete garden refurbishment with a fire pit, concrete slab, new fencing with trellises and artificial turf.",
     description: [
-      "The old gravel frontage was muddy and awkward to park on. We excavated, laid a compacted sub-base and finished with charcoal block paving and a contrasting border.",
-      "Drainage channels at the threshold keep surface water away from the house, and the new layout comfortably takes two cars.",
+      "The client wanted a low-maintenance outdoor space for relaxing and entertaining. Andrew and David refurbished the garden to create a practical space with artificial turf and new boundaries.",
+      "The work included a fire pit, concrete slab and new fencing with trellises. These original project photographs show the work in progress and the finished garden.",
     ],
-    scope: ["Excavation & sub-base", "Charcoal block paving", "Contrasting border edging", "Threshold drainage", "Two-car layout"],
-    image: drivewayImg,
-  },
-  {
-    slug: "rendering-chester",
-    title: "Full External Re-Render",
-    location: "Chester",
-    category: "Rendering & Plastering",
-    duration: "2 weeks",
-    summary:
-      "Cracked, blown render stripped back and replaced with a smooth modern finish, transforming the kerb appeal.",
-    description: [
-      "The existing render had blown in several places and was letting water behind it. We hacked it all off, repaired the substrate and applied a fresh through-colour render system.",
-      "The smooth white finish with crisp window reveals has completely changed the look of the house — and it no longer needs painting every few years.",
+    scope: ["Garden refurbishment", "Fire pit", "Concrete slab", "Fencing & trellises", "Artificial turf"],
+    image: gardenAsset.url,
+    photos: [
+      { image: gardenLawnAsset.url, alt: "Finished artificial lawn and trellis-topped garden fence" },
+      { image: gardenProgressAsset.url, alt: "Garden refurbishment in progress with new fencing and brickwork" },
     ],
-    scope: ["Strip blown render", "Substrate repairs", "Through-colour render system", "Crisp window reveals", "Maintenance-free finish"],
-    image: renderingImg,
-  },
-  {
-    slug: "renovation-rhosllanerchrugog",
-    title: "Full House Renovation",
-    location: "Rhosllanerchrugog, Wrexham",
-    category: "Renovations",
-    duration: "14 weeks",
-    summary:
-      "A tired terrace opened up into a modern open-plan home, with structural work, new kitchen and full replaster.",
-    description: [
-      "This whole-house renovation took a dated terrace back to brick and rebuilt it around a light, open-plan kitchen-diner with an exposed brick feature wall.",
-      "Our team managed the structural openings, steelwork, plumbing, plastering, joinery and tiling — one crew, one point of contact, start to finish.",
-    ],
-    scope: ["Structural openings & steels", "Full replaster", "Kitchen fit-out", "Plumbing & electrics coordination", "Joinery & tiling"],
-    image: renovationImg,
-  },
-  {
-    slug: "garage-conversion-rhosllanerchrugog",
-    title: "Garage to Garden Studio",
-    location: "Rhosllanerchrugog, Wrexham",
-    category: "Garage Conversions",
-    duration: "9 weeks",
-    summary:
-      "An unused double garage rebuilt as a warm, light-filled garden studio with insulated walls and new floor.",
-    description: [
-      "The garage was cold storage for things nobody used. We insulated the walls and floor, replaced the up-and-over door with a window wall, and created a year-round studio space.",
-      "With a brick accent wall, new electrics and a proper finish throughout, it's now the most-used room in the house.",
-    ],
-    scope: ["Wall & floor insulation", "Window wall installation", "New electrics", "Brick feature wall", "Plastering & finish"],
-    image: garageImg,
   },
 ];
 
@@ -132,6 +85,7 @@ export const categories = [
   "Extensions",
   "Loft Conversions",
   "Garage Conversions",
+  "Landscaping",
   "Stonework & Brickwork",
   "Driveways",
   "Rendering & Plastering",

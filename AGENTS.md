@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep portfolio entries aligned with verified client project sources and associate photographs with their actual project; unrelated images must not imply completed work.
+- Reference downloaded client photographs through Lovable Asset pointers to keep media out of the repository.
