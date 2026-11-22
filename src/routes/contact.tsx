@@ -36,11 +36,11 @@ function Contact() {
 
       <section className="bg-secondary py-16 text-secondary-foreground md:py-20">
         <div className="mx-auto max-w-6xl px-4">
-          <span className="inline-block rounded-full border border-accent/50 bg-accent/20 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.15em]">
+          <span className="brand-eyebrow inline-block py-1 text-[11px] font-bold uppercase">
             Contact us
           </span>
-          <h1 className="reveal mt-5 max-w-3xl font-display text-4xl leading-[0.95] tracking-tight md:text-6xl">
-            Let&rsquo;s talk about <span className="text-primary">your build.</span>
+          <h1 className="reveal mt-5 max-w-3xl font-display text-4xl leading-[0.95] md:text-6xl">
+            Let&rsquo;s talk about <span className="text-highlight">your build.</span>
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-secondary-foreground/80 md:text-lg">
             Free, no-obligation quotes across Wrexham, Chester, Mold, Oswestry and the wider North West. WhatsApp is
@@ -53,16 +53,16 @@ function Contact() {
         <div className="grid gap-10 lg:grid-cols-2">
           {/* Details */}
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Get in touch</p>
-            <h2 className="mt-2 font-display text-3xl tracking-tight md:text-4xl">Talk to Andrew or David</h2>
+            <p className="text-[11px] font-bold uppercase text-primary">Get in touch</p>
+            <h2 className="mt-2 font-display text-3xl md:text-4xl">Talk to Andrew or David</h2>
 
             <a
               href={contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 block rounded-2xl border-2 border-accent bg-accent/10 p-5 transition-transform hover:-translate-y-0.5"
+              className="mt-6 block rounded-lg border-2 border-accent bg-accent/10 p-5 transition-transform hover:-translate-y-0.5"
             >
-              <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-accent">Fastest reply</p>
+              <p className="text-[11px] font-bold uppercase text-accent">Fastest reply</p>
               <p className="mt-1 font-display text-xl">WhatsApp {contact.andrew.phone}</p>
               <p className="mt-1 text-sm text-muted-foreground">Send photos of the job — we can often quote from them.</p>
             </a>
@@ -70,18 +70,18 @@ function Contact() {
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               <a
                 href={`tel:${contact.andrew.tel}`}
-                className="rounded-2xl border border-border bg-card p-5 transition-transform hover:-translate-y-0.5"
+                className="rounded-lg border border-border bg-card p-5 transition-transform hover:-translate-y-0.5"
               >
-                <span className="block text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">
+                <span className="block text-[11px] font-bold uppercase text-muted-foreground">
                   Andrew Lloyd
                 </span>
                 <span className="mt-1 block font-display text-lg">{contact.andrew.phone}</span>
               </a>
               <a
                 href={`tel:${contact.david.tel}`}
-                className="rounded-2xl border border-border bg-card p-5 transition-transform hover:-translate-y-0.5"
+                className="rounded-lg border border-border bg-card p-5 transition-transform hover:-translate-y-0.5"
               >
-                <span className="block text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">
+                <span className="block text-[11px] font-bold uppercase text-muted-foreground">
                   David Jarman
                 </span>
                 <span className="mt-1 block font-display text-lg">{contact.david.phone}</span>
@@ -90,14 +90,14 @@ function Contact() {
 
             <a
               href={`mailto:${contact.email}`}
-              className="mt-4 block rounded-2xl border border-border bg-card p-5 transition-transform hover:-translate-y-0.5"
+              className="mt-4 block rounded-lg border border-border bg-card p-5 transition-transform hover:-translate-y-0.5"
             >
-              <span className="block text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">Email</span>
+              <span className="block text-[11px] font-bold uppercase text-muted-foreground">Email</span>
               <span className="mt-1 block font-semibold">{contact.email}</span>
             </a>
 
-            <address className="mt-6 rounded-2xl bg-muted/60 p-5 text-sm not-italic leading-relaxed">
-              <span className="block text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">
+            <address className="mt-6 rounded-lg bg-muted/60 p-5 text-sm not-italic leading-relaxed">
+              <span className="block text-[11px] font-bold uppercase text-muted-foreground">
                 Based in
               </span>
               <span className="mt-1 block font-semibold">
@@ -116,14 +116,14 @@ function Contact() {
             </address>
 
             <div className="mt-6">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Areas we cover</p>
+              <p className="text-[11px] font-bold uppercase text-primary">Areas we cover</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{serviceAreas.join(" · ")}</p>
             </div>
           </div>
 
           {/* Form */}
-          <div className="rounded-3xl border border-border bg-card p-6 md:p-8">
-            <h2 className="font-display text-2xl tracking-tight">Request a free quote</h2>
+          <div className="rounded-lg border border-border bg-card p-6 md:p-8">
+            <h2 className="font-display text-2xl">Request a free quote</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Fill this in and it opens WhatsApp with your message ready to send.
             </p>

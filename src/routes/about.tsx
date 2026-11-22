@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -17,6 +18,8 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: projectImages.hero },
+      { name: "twitter:image", content: projectImages.hero },
       { property: "og:url", content: "/about" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -30,20 +33,20 @@ function About() {
       <Header />
 
       {/* Intro */}
-      <section className="relative overflow-hidden bg-secondary text-secondary-foreground">
+      <section className="brand-hero relative overflow-hidden bg-secondary text-secondary-foreground">
         <img
           src={projectImages.hero}
           alt="Housing development with masonry completed by Andrew and David"
           className="absolute inset-0 h-full w-full object-cover opacity-25"
         />
         <div className="relative mx-auto max-w-6xl px-4 py-16 md:py-24">
-          <span className="inline-block rounded-full border border-accent/50 bg-accent/20 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.15em]">
+          <span className="brand-eyebrow inline-block py-1 text-[11px] font-bold uppercase">
             About us
           </span>
-          <h1 className="reveal mt-5 max-w-3xl font-display text-4xl leading-[0.95] tracking-tight md:text-6xl">
+          <h1 className="reveal mt-5 max-w-3xl font-display text-4xl leading-[0.95] md:text-6xl">
             Two builders.
             <br />
-            <span className="text-primary">One very high standard.</span>
+            <span className="text-highlight">One very high standard.</span>
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-secondary-foreground/80 md:text-lg">
             A&D Probuild Ltd is run by Andrew Lloyd and David Jarman from our base in Rhosllanerchrugog, Wrexham —
@@ -56,8 +59,8 @@ function About() {
       <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
         <div className="grid gap-10 md:grid-cols-2">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Who we are</p>
-            <h2 className="mt-2 font-display text-3xl tracking-tight md:text-4xl">Andrew &amp; David</h2>
+            <p className="text-[11px] font-bold uppercase text-primary">Who we are</p>
+            <h2 className="mt-2 font-display text-3xl md:text-4xl">Andrew &amp; David</h2>
             <div className="mt-5 space-y-4 text-sm leading-relaxed text-muted-foreground md:text-base">
               <p>
                 A&amp;D Probuild was set up by two tradesmen who were tired of watching jobs get passed around. When
@@ -74,8 +77,8 @@ function About() {
                 your job from first dig to final coat of paint.
               </p>
             </div>
-            <div className="mt-6 rounded-2xl border border-border bg-card p-5 text-sm">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent">The people behind A&amp;D</p>
+            <div className="mt-6 rounded-lg border border-border bg-card p-5 text-sm">
+              <p className="text-[11px] font-bold uppercase text-accent">The people behind A&amp;D</p>
               <div className="mt-3 grid gap-2">
                 <a href={`tel:${contact.andrew.tel}`} className="font-semibold hover:underline">
                   Andrew Lloyd — {contact.andrew.phone}
@@ -93,12 +96,12 @@ function About() {
             <img
               src={projectImages.stonework}
               alt="Traditional stonework built by A&D Probuild"
-              className="h-64 w-full rounded-3xl object-cover md:h-80"
+              className="h-64 w-full rounded-lg object-cover md:h-80"
             />
-            <blockquote className="rounded-2xl border-l-4 border-accent bg-muted/60 p-5 font-display text-lg leading-snug">
+            <blockquote className="rounded-lg border-l-4 border-accent bg-muted/60 p-5 font-display text-lg leading-snug">
               “Excellent service from a very professional pair of tradesmen. Happy to recommend and I will be using
               them in the future.”
-              <footer className="mt-3 font-body text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <footer className="mt-3 font-body text-xs font-semibold uppercase text-muted-foreground">
                 Dave Johnson — Google review
               </footer>
             </blockquote>
@@ -109,12 +112,12 @@ function About() {
       {/* What we do */}
       <section className="bg-muted/50 py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">What we do</p>
-          <h2 className="mt-2 font-display text-3xl tracking-tight md:text-4xl">Our trades</h2>
+          <p className="text-[11px] font-bold uppercase text-primary">What we do</p>
+          <h2 className="mt-2 font-display text-3xl md:text-4xl">Our trades</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
-              <div key={s.name} className="rounded-2xl border border-border bg-card p-6">
-                <h3 className="font-display text-lg leading-tight">{s.name}</h3>
+              <div key={s.name} className="rounded-lg border border-border bg-card p-6">
+                <h3 className="font-display text-2xl leading-tight">{s.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.blurb}</p>
               </div>
             ))}
@@ -126,8 +129,8 @@ function About() {
       <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
         <div className="grid gap-10 md:grid-cols-2">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Where we work</p>
-            <h2 className="mt-2 font-display text-3xl tracking-tight md:text-4xl">Local to you</h2>
+            <p className="text-[11px] font-bold uppercase text-primary">Where we work</p>
+            <h2 className="mt-2 font-display text-3xl md:text-4xl">Local to you</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
               We&rsquo;re based at {contact.address} and cover:
             </p>
@@ -140,28 +143,28 @@ function About() {
               Registered in England and Wales · Company No. {contact.companyNumber}
             </address>
           </div>
-          <div className="flex flex-col justify-center rounded-3xl bg-secondary p-8 text-secondary-foreground">
-            <h3 className="font-display text-2xl tracking-tight md:text-3xl">
+          <div className="flex flex-col justify-center rounded-lg bg-secondary p-8 text-secondary-foreground">
+            <h3 className="font-display text-2xl md:text-3xl">
               Got a project in mind?
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-secondary-foreground/75">
               Tell us what you&rsquo;re planning and we&rsquo;ll come back with a free, no-obligation quote.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a
+              <Button asChild variant="whatsapp" className="h-auto"><a
                 href={contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-accent px-7 py-4 font-display text-sm text-accent-foreground transition-transform hover:-translate-y-0.5"
+                className="rounded-md bg-accent px-7 py-4 font-body text-sm text-accent-foreground transition-transform hover:-translate-y-0.5"
               >
                 WhatsApp us
-              </a>
-              <Link
+              </a></Button>
+              <Button asChild variant="heroOutline" className="h-auto"><Link
                 to="/contact"
-                className="rounded-full border-2 border-secondary-foreground px-7 py-4 font-display text-sm transition-transform hover:-translate-y-0.5"
+                className="rounded-md border-2 border-secondary-foreground px-7 py-4 font-body text-sm transition-transform hover:-translate-y-0.5"
               >
                 Get a free quote
-              </Link>
+              </Link></Button>
             </div>
           </div>
         </div>

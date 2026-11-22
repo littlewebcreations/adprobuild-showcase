@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { useState, type FormEvent } from "react";
 import { contact, services } from "@/data/projects";
 
@@ -21,7 +22,7 @@ export function ContactForm() {
   };
 
   const inputCls =
-    "w-full rounded-xl border-2 border-input bg-card px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none";
+    "w-full rounded-md border-2 border-input bg-card px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none";
 
   return (
     <form onSubmit={onSubmit} className="space-y-3">
@@ -45,12 +46,12 @@ export function ContactForm() {
         className={inputCls}
         required
       />
-      <button
+      <Button
         type="submit"
-        className="w-full rounded-full bg-primary px-6 py-4 font-display text-sm tracking-wide text-primary-foreground transition-transform hover:-translate-y-0.5"
+        variant="whatsapp" className="h-auto w-full px-6 py-4 font-body text-sm"
       >
         Send your enquiry
-      </button>
+      </Button>
       <p className="text-center text-xs text-muted-foreground">
         Sends via WhatsApp — the fastest way to reach Andrew &amp; David.
       </p>

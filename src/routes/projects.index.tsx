@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
@@ -34,25 +35,25 @@ function Gallery() {
     <div className="min-h-screen bg-background font-body text-foreground">
       <Header />
       <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Our work</p>
-        <h1 className="mt-2 font-display text-4xl tracking-tight md:text-5xl">Project gallery</h1>
+        <p className="text-[11px] font-bold uppercase text-primary">Our work</p>
+        <h1 className="mt-2 font-display text-4xl md:text-5xl">Project gallery</h1>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
           Original project photographs from Andrew and David’s housing developments, brickwork, stonework and garden transformations.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-2">
           {categories.map((c) => (
-            <button
+            <Button
               key={c}
               onClick={() => setActive(c)}
               className={
                 active === c
-                  ? "rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground"
-                  : "rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground transition-colors hover:text-foreground"
+                  ? "rounded-md bg-primary px-4 py-2 text-xs font-bold text-primary-foreground"
+                  : "rounded-md border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground transition-colors hover:text-foreground"
               }
             >
               {c}
-            </button>
+            </Button>
           ))}
         </div>
 

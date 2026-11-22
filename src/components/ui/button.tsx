@@ -10,6 +10,8 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+        whatsapp: "bg-accent text-accent-foreground hover:bg-accent/90",
+        heroOutline: "border border-secondary-foreground/70 bg-transparent text-secondary-foreground hover:bg-secondary-foreground/10",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
           "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",

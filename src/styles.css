@@ -6,7 +6,7 @@
 
 /*
  * A&D Probuild design system.
- * Palette taken from the company logo: Welsh red, dragon green, black, white.
+ * Canva template palette: navy, gold, white and Welsh red/green accents.
  */
 
 @theme inline {
@@ -40,35 +40,37 @@
   --color-brand-green: var(--brand-green);
   --color-ink: var(--ink);
   --color-paper: var(--paper);
-  --font-display: "Archivo Black", sans-serif;
-  --font-body: "Space Grotesk", sans-serif;
+  --color-highlight: var(--highlight);
+  --font-display: "Boston Angel", "Cormorant Garamond", Georgia, serif;
+  --font-body: "Public Sans", sans-serif;
 }
 
 :root {
-  --radius: 0.75rem;
-  --brand-red: oklch(0.55 0.22 27);
-  --brand-green: oklch(0.5 0.14 145);
-  --ink: oklch(0.16 0.01 60);
-  --paper: oklch(0.975 0.004 90);
+  --radius: 0.5rem;
+  --brand-red: oklch(0.51 0.18 29);
+  --brand-green: oklch(0.47 0.16 143);
+  --ink: oklch(0.19 0.035 266);
+  --highlight: oklch(0.76 0.12 79);
+  --paper: oklch(0.99 0 0);
   --background: var(--paper);
   --foreground: var(--ink);
   --card: oklch(1 0 0);
   --card-foreground: var(--ink);
   --popover: oklch(1 0 0);
   --popover-foreground: var(--ink);
-  --primary: var(--brand-red);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.46 0.075 79);
+  --primary-foreground: var(--paper);
   --secondary: var(--ink);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.93 0.005 90);
-  --muted-foreground: oklch(0.45 0.01 60);
+  --muted: oklch(0.95 0.005 266);
+  --muted-foreground: oklch(0.44 0.025 266);
   --accent: var(--brand-green);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: var(--brand-red);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.88 0.005 80);
-  --input: oklch(0.88 0.005 80);
-  --ring: var(--brand-red);
+  --border: oklch(0.86 0.014 79);
+  --input: var(--border);
+  --ring: var(--highlight);
 }
 
 @layer base {
@@ -81,6 +83,46 @@
     color: var(--color-foreground);
     font-family: var(--font-body);
   }
+  * { letter-spacing: 0; }
+  h1, h2, h3, blockquote { font-weight: 500; }
+}
+
+.brand-hero { isolation: isolate; }
+.brand-hero > img { opacity: 0.7; }
+.brand-hero > div { z-index: 2; }
+.brand-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, var(--secondary) 0%, color-mix(in oklab, var(--secondary) 88%, transparent) 36%, color-mix(in oklab, var(--secondary) 15%, transparent) 100%);
+}
+.brand-hero::after {
+  content: "";
+  position: absolute;
+  right: -42px;
+  bottom: -42px;
+  width: 120px;
+  height: 120px;
+  border-left: 2px solid var(--paper);
+  background: var(--secondary);
+  transform: rotate(45deg);
+  pointer-events: none;
+  z-index: 3;
+}
+@media (max-width: 640px) {
+  .brand-hero::before { background: color-mix(in oklab, var(--secondary) 78%, transparent); }
+}
+.brand-eyebrow { border-left: 3px solid var(--brand-red); padding-left: 14px; }
+.brand-services { background: var(--secondary); color: var(--secondary-foreground); }
+.brand-services .service-item { border-color: var(--highlight); background: transparent; }
+.brand-services .service-item p { color: color-mix(in oklab, var(--secondary-foreground) 78%, transparent); }
+.brand-services .service-item span { color: var(--highlight); }
+.brand-review { border: 1px solid var(--border); border-left: 3px solid var(--brand-red); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { animation: none; }
+  * { scroll-behavior: auto; transition-duration: 0s !important; }
 }
 
 /* Reveal-on-scroll animation */

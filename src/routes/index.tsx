@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -19,6 +20,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: projectImages.hero },
+      { name: "twitter:image", content: projectImages.hero },
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -56,7 +59,7 @@ function Home() {
       <Header />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-secondary text-secondary-foreground">
+      <section className="brand-hero relative overflow-hidden bg-secondary text-secondary-foreground">
         <img
           src={projectImages.hero}
           alt="Homes with brickwork, blockwork and stonework completed by Andrew and David"
@@ -65,50 +68,50 @@ function Home() {
           className="absolute inset-0 h-full w-full object-cover opacity-35"
         />
         <div className="relative mx-auto max-w-6xl px-4 py-20 md:py-32">
-          <span className="inline-block rounded-full border border-accent/50 bg-accent/20 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.15em]">
+          <span className="brand-eyebrow inline-block py-1 text-[11px] font-bold uppercase">
             Builders in Wrexham &amp; North Wales
           </span>
-          <h1 className="reveal mt-5 max-w-3xl font-display text-5xl leading-[0.95] tracking-tight md:text-7xl">
-            You dream it,
+          <h1 className="reveal mt-5 max-w-3xl font-display text-5xl leading-[1.05] md:text-7xl">
+            A&amp;D Probuild
             <br />
-            <span className="text-primary">we build it.</span>
+            <span className="text-highlight">Built on reputation.</span>
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-secondary-foreground/80 md:text-lg">
             Renovations, extensions, loft and garage conversions, stonework and driveways — built properly by Andrew
             and David from our base in Rhosllanerchrugog.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
+            <Button asChild variant="whatsapp" className="h-auto"><a
               href={contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-accent px-7 py-4 font-display text-sm text-accent-foreground transition-transform hover:-translate-y-0.5"
+              className="rounded-md bg-accent px-7 py-4 font-body text-sm text-accent-foreground transition-transform hover:-translate-y-0.5"
             >
               Message us on WhatsApp
-            </a>
-            <a
+            </a></Button>
+            <Button asChild variant="heroOutline" className="h-auto"><a
               href="#contact"
-              className="rounded-full border-2 border-secondary-foreground px-7 py-4 font-display text-sm transition-transform hover:-translate-y-0.5"
+              className="rounded-md border-2 border-secondary-foreground px-7 py-4 font-body text-sm transition-transform hover:-translate-y-0.5"
             >
               Get a free quote
-            </a>
+            </a></Button>
           </div>
         </div>
       </section>
 
       {/* Services */}
-      <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">What we do</p>
-        <h2 className="mt-2 font-display text-3xl tracking-tight md:text-4xl">Nine trades, one standard</h2>
+      <section className="brand-services py-16 md:py-20"><div className="mx-auto max-w-6xl px-4">
+        <p className="text-[11px] font-bold uppercase text-highlight">What we do</p>
+        <h2 className="mt-2 font-display text-3xl md:text-4xl">Nine trades, one standard</h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
-            <div key={s.name} className="rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-lg">
+            <div key={s.name} className="service-item rounded-lg border p-6 transition-transform hover:-translate-y-1">
               <span className="font-display text-xs text-primary">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="mt-2 font-display text-lg leading-tight">{s.name}</h3>
+              <h3 className="mt-2 font-display text-2xl leading-tight">{s.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.blurb}</p>
             </div>
           ))}
-        </div>
+        </div></div>
       </section>
 
       {/* Work */}
@@ -116,10 +119,10 @@ function Home() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Recent builds</p>
-              <h2 className="mt-2 font-display text-3xl tracking-tight md:text-4xl">Straight from site</h2>
+              <p className="text-[11px] font-bold uppercase text-primary">Recent builds</p>
+              <h2 className="mt-2 font-display text-3xl md:text-4xl">Straight from site</h2>
             </div>
-            <Link to="/projects" className="font-display text-sm text-primary underline underline-offset-4">
+            <Link to="/projects" className="font-body text-sm text-primary underline underline-offset-4">
               View the full gallery →
             </Link>
           </div>
@@ -133,8 +136,8 @@ function Home() {
 
       {/* Testimonial */}
       <section className="mx-auto max-w-4xl px-4 py-16 text-center md:py-24">
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent">Google review</p>
-        <blockquote className="mt-4 font-display text-2xl leading-snug tracking-tight md:text-4xl">
+        <p className="text-[11px] font-bold uppercase text-accent">Google review</p>
+        <blockquote className="brand-review mt-4 px-6 py-8 font-display text-2xl leading-snug md:text-4xl">
           “Excellent service from a very professional pair of tradesmen. Happy to recommend and I will be using them in
           the future.”
         </blockquote>
@@ -145,27 +148,27 @@ function Home() {
       <section id="contact" className="bg-secondary py-16 text-secondary-foreground md:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-2">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent">Get in touch</p>
-            <h2 className="mt-2 font-display text-3xl tracking-tight md:text-4xl">Let&rsquo;s talk about your build</h2>
+            <p className="text-[11px] font-bold uppercase text-accent">Get in touch</p>
+            <h2 className="mt-2 font-display text-3xl md:text-4xl">Let&rsquo;s talk about your build</h2>
             <p className="mt-4 text-sm leading-relaxed text-secondary-foreground/75">
               Free, no-obligation quotes across Wrexham, Chester, Mold, Oswestry and the wider North West. Message us on
               WhatsApp for the quickest reply, or send the form and we&rsquo;ll get straight back to you.
             </p>
-            <a
+            <Button asChild variant="whatsapp" className="h-auto"><a
               href={contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-block rounded-full bg-accent px-7 py-4 font-display text-sm text-accent-foreground transition-transform hover:-translate-y-0.5"
+              className="mt-6 inline-block rounded-md bg-accent px-7 py-4 font-body text-sm text-accent-foreground transition-transform hover:-translate-y-0.5"
             >
               WhatsApp {contact.andrew.phone}
-            </a>
+            </a></Button>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <a href={`tel:${contact.andrew.tel}`} className="rounded-xl border border-white/15 p-4 text-sm font-semibold">
-                <span className="block text-[11px] uppercase tracking-[0.12em] text-secondary-foreground/50">Andrew</span>
+              <a href={`tel:${contact.andrew.tel}`} className="rounded-md border border-secondary-foreground/15 p-4 text-sm font-semibold">
+                <span className="block text-[11px] uppercase text-secondary-foreground/50">Andrew</span>
                 {contact.andrew.phone}
               </a>
-              <a href={`tel:${contact.david.tel}`} className="rounded-xl border border-white/15 p-4 text-sm font-semibold">
-                <span className="block text-[11px] uppercase tracking-[0.12em] text-secondary-foreground/50">David</span>
+              <a href={`tel:${contact.david.tel}`} className="rounded-md border border-secondary-foreground/15 p-4 text-sm font-semibold">
+                <span className="block text-[11px] uppercase text-secondary-foreground/50">David</span>
                 {contact.david.phone}
               </a>
             </div>
@@ -175,7 +178,7 @@ function Home() {
               {contact.address}
             </address>
           </div>
-          <div className="rounded-3xl bg-background p-6 text-foreground">
+          <div className="rounded-lg bg-background p-6 text-foreground">
             <ContactForm />
           </div>
         </div>

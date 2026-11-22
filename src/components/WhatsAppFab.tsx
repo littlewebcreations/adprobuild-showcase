@@ -1,18 +1,19 @@
 import { contact } from "@/data/projects";
+import { Button } from "@/components/ui/button";
 
 export function WhatsAppFab() {
   return (
-    <a
+    <Button asChild variant="whatsapp" className="fixed bottom-5 right-5 z-50 h-12 w-12 rounded-full p-0 shadow-lg sm:h-auto sm:w-auto sm:px-5 sm:py-3.5"><a
       href={contact.whatsapp}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with A&D Probuild on WhatsApp"
-      className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-accent px-5 py-3.5 font-display text-sm text-accent-foreground shadow-lg transition-transform hover:-translate-y-0.5"
+      title="Chat on WhatsApp"
     >
       <svg viewBox="0 0 24 24" className="size-5 fill-current" aria-hidden="true">
         <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.73-.66-1.23-1.47-1.38-1.72-.14-.24-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z" />
       </svg>
-      Chat on WhatsApp
-    </a>
+      <span className="hidden sm:inline">Chat on WhatsApp</span>
+    </a></Button>
   );
 }
