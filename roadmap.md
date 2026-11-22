@@ -11,7 +11,7 @@
 - [x] About page (/about) and Contact page (/contact), added to header nav
 - [ ] Sitemap (after publish, once the live URL exists)
 - [x] Match supplied Canva styling: navy, gold, serif headings, red/green accents and fine borders
-- [ ] Use Boston Angel headings and Public Sans body text — uploaded TTF inspected; awaiting confirmation of a purchased website licence before embedding
+- [ ] Use Boston Angel headings — website licence not yet purchased; retain the current fallback and Public Sans until licensed
 - [x] Review supplied MyFonts website licence — purchased page-view allowance applies; font kit still needed
 - [x] Replace generated imagery with verified client project photographs
 - [x] Apply newly supplied website logo and favicon
