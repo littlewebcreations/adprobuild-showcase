@@ -16,8 +16,9 @@
 | 7 | Borders | `oklch(0.86 0.014 79)` |
 | 8 | Extra | dragon green `oklch(0.47 0.16 143)` |
 
-- Point every shadcn/Tailwind colour token (background, primary, accent, border, ring, etc.) at these nine variables, so no other colours are defined. Remove the `--brand-red`, `--ink`, `--highlight` and similar tokens.
-- Remove the custom classes I added earlier (`brand-hero`, `brand-eyebrow`, `brand-services`, `brand-review`). They use px sizes, an absolutely positioned corner shape and a gradient, which the rules don't allow. Section backgrounds will come from the colour variables instead.
+- The nine variables reuse the existing colour values exactly. No colour changes anywhere, including the WhatsApp green.
+- Point the shadcn/Tailwind colour tokens at these variables. Where a token has a colour outside the nine (for example the WhatsApp green), it keeps its current value unchanged.
+- Nothing is deleted. All existing tokens and styles stay, including `brand-hero`, `brand-eyebrow`, `brand-services`, `brand-review`, the gradient and the corner shape. On the page elements, the old classes are swapped for the matching stylesheet classes, but the old definitions and decorative elements remain for the WordPress conversion.
 
 ## 2. Page structure on every page
 - Add a shared `SiteLayout` component that renders `div#page.hfeed.site` > `header#masthead` > `div#content.site-content` > `.ast-container` > `#primary.content-area.primary` > `main#main.site-main` > `article.page.ast-article-single` > `div.entry-content.clear` > page sections, followed by `footer.ast-custom-footer`.
@@ -31,7 +32,7 @@
 - The first section on Home uses `hero-cont`. The first section on every other page uses `page-cont`. Other sections use `section-cont`, and calls to action use `cta-cont`. Each section gets a plain id (hero, services, gallery, review, contact, about, areas…).
 - Headings use only the title classes (hero-/section-/page-/card-/cta-title). There is one h1 per page and headings go in order. Text uses the matching `-desc` classes, and small labels use `eyebrow`.
 - Remove Tailwind padding, font size, gap and colour utilities from these elements. Every row, column and card becomes a flex container with wrapping, using container classes such as `inner-cont`, `card-cont` and `loop-cont`. Only layout utilities that the classes don't cover stay (`flex`, `flex-wrap`, widths in %/rem, `object-cover`).
-- Buttons always sit in a `*-buttons` group and use `primary-button` or `secondary-button` only. The shadcn Button variants (whatsapp, heroOutline) are no longer used on the pages.
+- Buttons always sit in a `*-buttons` group and use `primary-button` or `secondary-button`. WhatsApp buttons keep their current green colour.
 - The gallery filter becomes tabs.
 
 ## 5. Sizes
@@ -45,13 +46,11 @@
 ## 7. Per-page details
 - Keep each page's own title, description and slug. Check that every image has alt text, and that the logo and the square favicon are separate files.
 
-## Questions before building
-These are where the rules conflict with the current site. Here is what I'll do unless you say otherwise:
-1. **Floating WhatsApp button**: the rules ban absolute positioning for layout. I'll **remove** it; WhatsApp stays in the header and the call-to-action sections.
-2. **WhatsApp button colour**: buttons may only use primary-button or secondary-button, so the green WhatsApp button becomes a standard `primary-button`.
-3. **Stylesheet values**: `html { font-size: 18px }` and the `rgba(240,214,183,0.52)` hover colour are kept exactly as written, as you asked. They are the only px font size and hard-coded colour.
-4. **Losing the WhatsApp form**: the working form that opens WhatsApp will be replaced by the placeholder, as the rules require.
+## Agreed exceptions
+- The floating WhatsApp button stays exactly as it is now: same position, same colour.
+- The stylesheet is pasted exactly as written, including `html { font-size: 18px }` and the rgba hover colour.
+- The working WhatsApp form is replaced by the placeholder, as the rules require.
 
 ## Checks
 - The build is clean. Playwright screenshots at mobile and desktop for every page.
-- A search confirms there are no hex/rgb/hsl colours, Lucide icons or px sizes in the site's own files. The only exceptions are the allowed ones and the stylesheet as you supplied it.
+- A search confirms there are no hex/rgb/hsl colours, Lucide icons or px sizes in the site's own files. The only exceptions are the allowed ones, the existing decorative styles and the stylesheet as you supplied it.
